@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" styleClass="main-container" stylesheets="@pesanan-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.deajayanet.controller.PesananController">
+   
+   <top>
+      <VBox spacing="15.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="title-label" text="Pusat Pesanan">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="subtitle-label" text="Monitoring antrean makanan &amp; minuman (QRIS / Cash)" />
+                     </children>
+                  </VBox>
+                  
+                  <HBox spacing="20.0" styleClass="stats-wrapper">
+                     <children>
+                        <VBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Label styleClass="stat-caption" text="ANTREAN AKTIF" />
+                              <Label fx:id="lblTotalAntrean" styleClass="stat-value" text="0" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Label styleClass="stat-caption" text="OMZET HARI INI" />
+                              <Label fx:id="lblOmzet" styleClass="stat-value" text="Rp 0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="table-header-pseudo">
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="120.0" styleClass="header-label" text="PC" />
+                  <Label prefWidth="300.0" styleClass="header-label" text="MENU / DETAIL" />
+                  <Label prefWidth="120.0" styleClass="header-label" text="TOTAL" />
+                  <Label prefWidth="100.0" styleClass="header-label" text="WAKTU" />
+                  <Label prefWidth="120.0" styleClass="header-label" text="STATUS" />
+                  <Label styleClass="header-label" text="AKSI" />
+               </children>
+            </HBox>
+            
+            <ListView fx:id="listPesanan" styleClass="modern-list-view" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+
+   <bottom>
+      <VBox styleClass="footer-container" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+         <children>
+            <Label styleClass="footer-title" text="Input Pesanan Manual (Cash/Offline)">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="footer-form">
+               <children>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="field-label" text="PC Client" />
+                        <ComboBox fx:id="cmbPc" prefWidth="120.0" promptText="Pilih PC" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="field-label" text="Menu" />
+                        <ComboBox fx:id="cmbMenu" prefWidth="250.0" promptText="Cari menu..." />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="field-label" text="Qty" />
+                        <ComboBox fx:id="cmbQty" prefWidth="80.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_LEFT">
+                     <children>
+                        <Button fx:id="btnTambahItem" mnemonicParsing="false" styleClass="btn-secondary" text="Tambah" />
+                     </children>
+                  </VBox>
+                  
+                  <Region HBox.hgrow="ALWAYS" />
+                  
+                  <VBox alignment="CENTER_RIGHT" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblSummaryKeranjang" styleClass="summary-text" text="0 Items | Rp 0" />
+                        <Button fx:id="btnBayarCash" mnemonicParsing="false" styleClass="btn-primary" text="BAYAR &amp; MASUK ANTREAN" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

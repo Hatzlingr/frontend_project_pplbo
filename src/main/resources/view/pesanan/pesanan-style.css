@@ -1,0 +1,185 @@
+/* =========================================
+   1. ROOT & BACKGROUND
+   ========================================= */
+.main-container {
+    -fx-background-color: #111832; /* Background gelap ala warnet lo tetep stay */
+}
+
+/* =========================================
+   2. TYPOGRAPHY & LABELS
+   ========================================= */
+.title-label {
+    -fx-text-fill: #d9d9d9;
+}
+
+.subtitle-label {
+    -fx-text-fill: #6b7280;
+}
+
+/* Buat area stat di pojok kanan atas */
+.stat-caption {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 10px;
+}
+
+.stat-value {
+    -fx-text-fill: #d9d9d9;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.field-label {
+    -fx-text-fill: #4b5563;
+}
+
+.summary-text {
+    -fx-text-fill: #0033ff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.footer-title {
+    -fx-text-fill: #d9d9d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* =========================================
+   3. LIST VIEW & PSEUDO-HEADER
+   ========================================= */
+/* Header buatan manual biar sinkron sama lebar ItemPesanan */
+.table-header-pseudo {
+    -fx-background-color: white;
+    -fx-background-radius: 15 15 0 0; /* Lengkung di atas aja */
+    -fx-border-color: transparent transparent #e5e7eb transparent;
+    -fx-border-width: 1;
+}
+
+.header-label {
+    -fx-text-fill: #4b5563;
+    -fx-font-weight: bold;
+}
+
+/* ListView Container */
+.modern-list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 15 15; /* Lengkung di bawah aja */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);
+    -fx-border-color: transparent;
+}
+
+/* Reset default style JavaFX ListCell biar gak ada warna biru aneh */
+.modern-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0; 
+}
+
+/* Biar sisa area list yang kosong tetep putih bersih */
+.modern-list-view .list-cell:empty {
+    -fx-background-color: white; 
+}
+
+/* =========================================
+   4. ITEM PESANAN (Custom List Cell)
+   ========================================= */
+.item-pesanan-container {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f3f4f6 transparent;
+    -fx-border-width: 1;
+}
+
+.item-pesanan-container:hover {
+    -fx-background-color: #f8fafc;
+}
+
+/* Feedback visual tipis kalau row-nya lagi di-klik/aktif */
+.modern-list-view .list-cell:selected .item-pesanan-container {
+    -fx-background-color: #eff6ff; 
+}
+
+.pc-number-label {
+    -fx-text-fill: #2563eb;
+}
+
+.waktu-label {
+    -fx-text-fill: #6b7280;
+}
+
+/* --- Badges System --- */
+.payment-badge {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+    -fx-background-radius: 4;
+    -fx-padding: 2 6 2 6;
+}
+
+.payment-badge-qris {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #166534;
+    -fx-background-radius: 4;
+    -fx-padding: 2 6 2 6;
+}
+
+.status-badge-cooking {
+    -fx-background-color: #fef08a;
+    -fx-text-fill: #854d0e;
+    -fx-background-radius: 15;
+    -fx-padding: 4 10 4 10;
+}
+
+.status-badge-done {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #166534;
+    -fx-background-radius: 15;
+    -fx-padding: 4 10 4 10;
+}
+
+/* Action Button di dalam List */
+.btn-aksi {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-text-fill: #374151;
+    -fx-cursor: hand;
+}
+
+.btn-aksi:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+/* =========================================
+   5. FOOTER FORM & BUTTONS
+   ========================================= */
+.footer-form {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 10;
+}
+
+.btn-secondary {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #374151;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #e5e7eb;
+}
+
+.btn-primary {
+    -fx-background-color: #0033ff;
+    -fx-text-fill: #d9d9d9;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #0029cc;
+}
