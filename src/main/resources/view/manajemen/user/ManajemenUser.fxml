@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" 
+            styleClass="main-container" 
+            stylesheets="@manajemen-user-style.css" 
+            xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.deajayanet.controller.ManajemenUserController">
+   
+   <top>
+      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="title-label" text="Manajemen User">
+                           <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+                        <Label styleClass="subtitle-label" text="Kelola member Reguler &amp; VIP serta deposit saldo waktu" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <VBox spacing="10.0" styleClass="footer-form"> <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <children>
+                  <Label styleClass="footer-title" text="Tambah Member Baru / Isi Saldo" />
+                  <HBox spacing="15.0" alignment="BOTTOM_LEFT">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="field-label" text="Username" />
+                              <TextField fx:id="txtUsername" promptText="ex: amir_ganteng" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="field-label" text="Nama Lengkap" />
+                              <TextField fx:id="txtNama" promptText="Masukkan nama asli" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label styleClass="field-label" text="Tipe Akun" />
+                              <ComboBox fx:id="cmbTipeAkun" prefWidth="130.0" promptText="Pilih Tipe" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label styleClass="field-label" text="Deposit (Rp)" />
+                              <TextField fx:id="txtDeposit" prefWidth="150.0" promptText="Nominal Bayar" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnSimpanUser" mnemonicParsing="false" styleClass="btn-primary" text="SIMPAN &amp; BAYAR" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="15.0">
+                     <children>
+                        <PasswordField fx:id="txtPassword" HbBox.hgrow="ALWAYS" promptText="Password Baru" />
+                        <TextField fx:id="txtEmail" HBox.hgrow="ALWAYS" promptText="Alamat Email (Optional)" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="25.0" right="25.0" bottom="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <children>
+                    <Label styleClass="footer-title" text="Daftar Member Terdaftar" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="txtSearch" prefWidth="250.0" promptText="Cari username atau nama..." styleClass="search-field" />
+                </children>
+            </HBox>
+            
+            <TableView fx:id="tblUsers" styleClass="modern-table" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="colUsername" prefWidth="150.0" text="Username" />
+                  <TableColumn fx:id="colNama" prefWidth="200.0" text="Nama" />
+                  <TableColumn fx:id="colEmail" prefWidth="180.0" text="Email" />
+                  <TableColumn fx:id="colTipe" prefWidth="120.0" text="Tipe Akun" />
+                  <TableColumn fx:id="colSaldo" prefWidth="150.0" text="Sisa Waktu" />
+                  <TableColumn fx:id="colAksi" prefWidth="120.0" text="Aksi" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

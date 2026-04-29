@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" 
+            styleClass="main-container" 
+            stylesheets="@manajemen-pc-style.css"
+            xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.deajayanet.controller.ManajemenPCController">
+   
+   <top>
+      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="title-label" text="Inventaris &amp; Spek PC">
+                           <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+                        <Label styleClass="subtitle-label" text="Kelola aset hardware, tipe billing, dan status maintenance PC" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <VBox spacing="10.0" styleClass="footer-form">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <children>
+                  <Label styleClass="footer-title" text="Tambah / Update Data Inventaris" />
+                  <HBox spacing="15.0" alignment="BOTTOM_LEFT">
+                     <children>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label styleClass="field-label" text="ID / No. PC" />
+                              <TextField fx:id="txtIdPc" prefWidth="100.0" promptText="ex: PC-01" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label styleClass="field-label" text="Tipe Unit" />
+                              <ComboBox fx:id="cmbTipePc" prefWidth="130.0" promptText="Reguler/VIP" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="field-label" text="Spesifikasi (CPU, GPU, RAM)" />
+                              <TextField fx:id="txtSpek" promptText="ex: i5-12400F, RTX 3060, 16GB" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label styleClass="field-label" text="Status Kondisi" />
+                              <ComboBox fx:id="cmbStatusPc" prefWidth="150.0" promptText="Pilih Status" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnSimpanPc" mnemonicParsing="false" styleClass="btn-primary" text="SIMPAN ASET" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="25.0" right="25.0" bottom="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+                <children>
+                    <Label styleClass="footer-title" text="Daftar Unit PC Warnet" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="txtSearchPc" prefWidth="250.0" promptText="Cari ID atau Spek..." styleClass="search-field" />
+                </children>
+            </HBox>
+            
+            <TableView fx:id="tblPc" styleClass="modern-table" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="colIdPc" prefWidth="100.0" text="ID PC" />
+                  <TableColumn fx:id="colTipe" prefWidth="120.0" text="Tipe" />
+                  <TableColumn fx:id="colSpek" prefWidth="400.0" text="Spesifikasi Hardware" />
+                  <TableColumn fx:id="colStatus" prefWidth="150.0" text="Kondisi" />
+                  <TableColumn fx:id="colAksi" prefWidth="120.0" text="Aksi" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
