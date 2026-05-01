@@ -103,3 +103,49 @@
 .item-btn:hover {
     -fx-background-color: linear-gradient(to bottom, #3b82f6, #2f6fe4);
 }
+
+
+/* Statistic Card */
+.card-container {
+    -fx-background-color: #0b143a;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255, 255, 255, 0.3); /* Border putih transparan agar halus */
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-overflow: hidden; /* Memastikan konten tidak keluar dari radius */
+}
+
+.top-accent {
+    -fx-background-color: #00ff00;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.content-box {
+    -fx-padding: 20 25 25 25;
+}
+
+.title-text {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-family: "System";
+}
+
+.count-text {
+    -fx-text-fill: white;
+    -fx-font-size: 52px;
+    -fx-font-weight: bold;
+    -fx-font-family: "System";
+    /* Mengurangi padding default agar tidak terlalu renggang */
+    -fx-padding: -10 0 -10 0; 
+}
+
+.subtitle-text {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: "System";
+}
+
+.top-accent {
+    -fx-background-color: #eeff00;
+    -fx-background-radius: 12 12 0 0;
+}

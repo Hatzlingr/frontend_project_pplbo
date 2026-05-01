@@ -4,46 +4,41 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.Region?>
 
-<HBox fx:id="rootBox" alignment="CENTER_LEFT" minHeight="60.0" spacing="15.0" styleClass="item-pesanan-container" stylesheets="@pesanan-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.deajayanet.controller.ItemPesananController">
+<HBox alignment="CENTER_LEFT" minHeight="50.0" styleClass="item-row" stylesheets="@pesanan-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
-      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+      <Insets left="20.0" right="20.0" />
    </padding>
    <children>
       
-      <VBox alignment="CENTER_LEFT" prefWidth="120.0">
+      <!-- Kolom PC & Icon -->
+      <HBox alignment="CENTER_LEFT" prefWidth="120.0" spacing="10.0">
          <children>
-            <Label fx:id="lblPcNumber" styleClass="pc-number-label" text="PC-04">
-               <font><Font name="System Bold" size="16.0" /></font>
-            </Label>
+            <Region prefHeight="20.0" prefWidth="20.0" styleClass="icon-pc" />
+            <Label styleClass="item-text-bold" text="PC-05" />
          </children>
-      </VBox>
+      </HBox>
       
-      <VBox alignment="CENTER_LEFT" prefWidth="300.0">
+      <!-- Kolom Menu -->
+      <Label prefWidth="250.0" styleClass="item-text-bold" text="Nasi Goreng" />
+      
+      <!-- Kolom Jumlah -->
+      <Label prefWidth="100.0" styleClass="item-text-bold" text="2" />
+      
+      <!-- Kolom Waktu -->
+      <Label prefWidth="150.0" styleClass="item-text-bold" text="12:12:0" />
+      
+      <!-- Kolom Status (Ubah class via Java nanti: status-proses / status-selesai / status-batal) -->
+      <Label prefWidth="120.0" styleClass="status-proses" text="Proses" />
+      
+      <!-- Kolom Aksi -->
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
          <children>
-            <Label fx:id="lblMenu" text="2x Nasi Goreng&#10;1x Es Teh Manis" wrapText="true" />
-            <Label fx:id="lblPayment" styleClass="payment-badge" text="LUNAS (CASH)">
-               <font><Font size="10.0" /></font>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Label>
+            <Button mnemonicParsing="false" styleClass="btn-outline-yellow" text="Edit" />
+            <Button mnemonicParsing="false" styleClass="btn-outline-red" text="Hapus" />
          </children>
-      </VBox>
-      
-      <Label fx:id="lblHarga" prefWidth="120.0" text="Rp 35.000">
-         <font><Font name="System Bold" size="12.0" /></font>
-      </Label>
-      
-      <Label fx:id="lblWaktu" prefWidth="100.0" styleClass="waktu-label" text="23:39" />
-      
-      <Label fx:id="lblStatus" prefWidth="120.0" styleClass="status-badge-cooking" text="Dimasak">
-         <font><Font name="System Bold" size="11.0" /></font>
-      </Label>
-      
-      <Button fx:id="btnAksi" mnemonicParsing="false" styleClass="btn-aksi" text="Selesai" />
+      </HBox>
       
    </children>
 </HBox>

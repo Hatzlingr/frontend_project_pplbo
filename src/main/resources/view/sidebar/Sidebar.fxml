@@ -24,7 +24,7 @@
         <Button fx:id="dashboardButton" maxWidth="Infinity" styleClass="menu-btn" text="Dashboard" />
         <Button fx:id="monitoringButton" maxWidth="Infinity" styleClass="menu-btn" text="Monitoring Sesi" />
         <Button fx:id="pesananButton" maxWidth="Infinity" styleClass="menu-btn" text="Pusat Pesanan" />
-      <Button fx:id="antrianButton" layoutX="24.0" layoutY="189.0" maxWidth="Infinity" styleClass="menu-btn" text="Antrian Verifikasi" />
+      <Button fx:id="antrianButton" layoutX="24.0" layoutY="189.0" maxWidth="Infinity" styleClass="menu-btn" text="Pesanan Billing" />
       <Label styleClass="sidebar-title" text="Manajemen" />
       <Button fx:id="userButton" layoutX="24.0" layoutY="111.0" maxWidth="Infinity" styleClass="menu-btn" text="User" />
         <Button fx:id="komputerButton" maxWidth="Infinity" styleClass="menu-btn" text="Komputer" />

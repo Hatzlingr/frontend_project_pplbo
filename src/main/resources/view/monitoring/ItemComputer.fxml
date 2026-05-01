@@ -3,18 +3,25 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="140.0" prefWidth="180.0" spacing="6.0" styleClass="item-container" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.features.monitoring.ItemComputerController" stylesheets="@monitoring-style.css">
+<VBox prefHeight="140.0" prefWidth="180.0" spacing="6.0" style="-fx-alignment: center;" styleClass="item-container" stylesheets="@monitoring-style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.features.monitoring.ItemComputerController">
 
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
 
     <children>
-        <Label fx:id="lblPcNumber" styleClass="pc-number" text="PC-00" />
-        <Label fx:id="lblUser" styleClass="pc-user" text="Kosong" />
-        <Label fx:id="lblTimer" styleClass="pc-timer" text="00:00:00" />
+        <Label fx:id="lblPcNumber" style="-fx-alignment: center;" styleClass="pc-number" text="PC-00" />
+        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" style="-fx-alignment: center;">
+                    <image>
+                        <Image url="@../../asset/image.png" />
+                    </image>
+                </ImageView>
+        <Label fx:id="lblUser" style="-fx-alignment: center;" styleClass="pc-user" text="Kosong" />
+        <Label fx:id="lblTimer" style="-fx-alignment: center;" styleClass="pc-timer" text="00:00:00" />
         <Button fx:id="btnAction" maxWidth="Infinity" styleClass="item-btn" text="Start / Stop" />
     </children>
 </VBox>

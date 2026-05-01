@@ -1,0 +1,70 @@
+/* --- CONTAINER & TEXT --- */
+.main-wrapper {
+    -fx-background-color: #0b143a; /* Latar biru dongker */
+    -fx-padding: 20;
+}
+
+.main-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "System";
+}
+
+.chart-container {
+    -fx-border-color: #535bb0; /* Border biru/ungu terang */
+    -fx-border-radius: 12;
+    -fx-border-width: 1.5;
+    -fx-padding: 20 20 10 20; 
+}
+
+/* --- STYLING GRAFIK DASAR --- */
+.chart-plot-background {
+    -fx-background-color: transparent; /* Hilangkan kotak putih bawaan */
+}
+
+/* Membuat Garis Grid Putus-putus (Titik-titik) */
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #8ca3d4; 
+    -fx-stroke-dash-array: 2 4; /* Angka ini membuat efek putus-putus */
+    -fx-stroke-width: 1;
+}
+
+/* Menghilangkan garis sumbu utama yang tebal */
+.axis:bottom,
+.axis:left {
+    -fx-border-color: transparent;
+}
+.axis-tick-mark {
+    -fx-stroke: transparent; 
+}
+
+/* Warna teks Sumbu X dan Y */
+.axis-label,
+.axis .tick-label {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* --- STYLING TIANG GRAFIK (BAR) --- */
+/* Karena ini StackedBarChart, warna diatur berdasarkan urutan data (Series) */
+
+/* Series 1: Warna ungu terang (Nilai Pendapatan Asli) */
+.default-color0.chart-bar {
+    -fx-bar-fill: #7b61ff; 
+}
+
+/* Series 2: Warna gelap transparan (Sisa ruang kosong sampai angka 30) */
+.default-color1.chart-bar {
+    -fx-bar-fill: #3b4274; 
+}
+
+/* --- STYLING LEGEND (KETERANGAN DI BAWAH) --- */
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 10 0 0 0;
+}
+.chart-legend-item {
+    -fx-text-fill: white;
+}

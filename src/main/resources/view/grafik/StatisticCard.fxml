@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<!-- 1. Tambahkan prefWidth dan prefHeight di VBox paling luar -->
+<VBox fx:controller="GrafikController" prefHeight="350.0" prefWidth="550.0" spacing="15" styleClass="main-wrapper" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label styleClass="main-title" text="Grafik Transaksi" />
+      
+      <VBox styleClass="chart-container" VBox.vgrow="ALWAYS">
+         <children>
+            <!-- 2. Tambahkan VBox.vgrow="ALWAYS" pada StackedBarChart -->
+            <StackedBarChart fx:id="transaksiChart" animated="false" legendVisible="true" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelGap="10"/>
+              </xAxis>
+              <yAxis>
+                <NumberAxis autoRanging="false" lowerBound="0" side="LEFT" tickUnit="5" upperBound="30" />
+              </yAxis>
+            </StackedBarChart>
+         </children>
+      </VBox>
+   </children>
+</VBox>

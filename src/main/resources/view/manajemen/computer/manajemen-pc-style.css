@@ -183,3 +183,75 @@
 .btn-primary:hover {
     -fx-background-color: #0029cc;
 }
+
+
+/* --- CONTAINER POP-UP --- */
+.popup-container {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: #0b143a; /* Tema biru dongker */
+    -fx-padding: 30;
+    /* Efek border halus seperti komponen sebelumnya */
+    -fx-border-color: #535bb0; 
+    -fx-border-width: 2;
+}
+
+.popup-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "System";
+    -fx-padding: 0 0 10 0; /* Jarak bawah sebelum form */
+}
+
+/* --- STYLING FORM INPUT --- */
+.form-label {
+    -fx-text-fill: #a0a8cc; /* Putih agak redup agar tidak tabrakan dengan judul */
+    -fx-font-size: 13px;
+    -fx-font-family: "System";
+}
+
+.form-input {
+    -fx-background-color: #1a224d; /* Biru yang sedikit lebih terang dari background */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 15 10 15;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent transparent #535bb0 transparent; /* Border bawah saja */
+    -fx-border-width: 2;
+}
+
+/* Efek saat text field diklik (fokus) */
+.form-input:focused {
+    -fx-border-color: #7b61ff; /* Berubah ungu saat diklik */
+    -fx-background-color: #242d63;
+}
+
+/* --- STYLING TOMBOL --- */
+.btn-primary {
+    -fx-background-color: #7b61ff; /* Ungu terang */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #8c75ff; /* Ungu lebih terang saat di-hover */
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a0a8cc;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-border-color: #535bb0;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #1a224d;
+}
