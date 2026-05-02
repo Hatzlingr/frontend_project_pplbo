@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER_LEFT"
+      spacing="14.0"
+      styleClass="transaction-row card-flat"
+      stylesheets="@riwayat-style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <padding><Insets top="14" right="16" bottom="14" left="16" /></padding>
+    <children>
+        <VBox spacing="4.0" prefWidth="170.0">
+            <Label fx:id="transactionIdLabel" styleClass="row-title" text="TRX-0001" />
+            <Label fx:id="transactionDateLabel" styleClass="row-subtitle mono-text" text="2026-05-02 10:30" />
+        </VBox>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Label fx:id="transactionTypeBadge" styleClass="badge badge-info" text="Topup Member" />
+                <Label fx:id="paymentMethodBadge" styleClass="badge badge-success" text="Cash" />
+            </HBox>
+            <Label fx:id="transactionDescriptionLabel" styleClass="row-subtitle" text="Topup member Andi - Paket 2 Jam" />
+        </VBox>
+        <Label fx:id="transactionAmountLabel" styleClass="amount-text" text="Rp10.000" />
+        <Button fx:id="transactionDetailButton" styleClass="secondary-button" text="Detail" />
+    </children>
+</HBox>

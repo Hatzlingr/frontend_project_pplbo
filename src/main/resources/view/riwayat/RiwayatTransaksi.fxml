@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane styleClass="page-root"
+            stylesheets="@riwayat-style.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="14.0" styleClass="page-header">
+            <VBox spacing="4.0">
+                <Label styleClass="page-title" text="Riwayat Transaksi" />
+                <Label styleClass="page-subtitle" text="Riwayat F&amp;B, billing session, dan topup member." />
+            </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar">
+                <TextField fx:id="searchTransactionField" promptText="Cari transaksi..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="transactionTypeFilterCombo" prefWidth="170.0" promptText="Semua Tipe" styleClass="form-combo" />
+                <ComboBox fx:id="paymentMethodFilterCombo" prefWidth="170.0" promptText="Semua Metode" styleClass="form-combo" />
+                <DatePicker fx:id="transactionDatePicker" prefWidth="150.0" styleClass="form-input" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="12.0" styleClass="content-wrapper">
+                <VBox fx:id="transactionRowContainer" spacing="10.0" />
+                <VBox fx:id="emptyTransactionState" alignment="CENTER" spacing="8.0" styleClass="empty-state" visible="false" managed="false">
+                    <Label styleClass="empty-title" text="Belum ada transaksi" />
+                    <Label styleClass="empty-subtitle" text="Data transaksi akan muncul setelah pembayaran sukses." />
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

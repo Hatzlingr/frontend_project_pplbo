@@ -1,111 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="700.0" prefWidth="1000.0" styleClass="main-bg" stylesheets="@pesanan-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   
-   <!-- BAGIAN ATAS: Judul -->
-   <top>
-      <VBox BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="20.0" left="30.0" right="30.0" top="30.0" />
-         </padding>
-         <children>
-            <Label styleClass="main-title" text="Pemesanan Makanan" />
-         </children>
-      </VBox>
-   </top>
-
-   <!-- BAGIAN TENGAH: Tabel -->
-   <center>
-      <VBox styleClass="outlined-box" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="30.0" right="30.0" />
-         </BorderPane.margin>
-         <children>
-            <!-- Header Tabel -->
-            <HBox alignment="CENTER_LEFT" styleClass="table-header">
-               <padding>
-                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
-               </padding>
-               <children>
-                  <!-- Lebar tiap kolom disesuaikan dengan item -->
-                  <Label prefWidth="120.0" styleClass="header-text" text="No PC" />
-                  <Label prefWidth="250.0" styleClass="header-text" text="Menu" />
-                  <Label prefWidth="100.0" styleClass="header-text" text="Jumlah" />
-                  <Label prefWidth="150.0" styleClass="header-text" text="Waktu" />
-                  <Label prefWidth="120.0" styleClass="header-text" text="Status" />
-                  <Label styleClass="header-text" text="Aksi" />
-               </children>
+<BorderPane styleClass="page-root" stylesheets="@pesanan-style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="14.0" styleClass="page-header">
+            <VBox spacing="4.0">
+                <Label styleClass="page-title" text="Pusat Pesanan" />
+                <Label styleClass="page-subtitle" text="Kitchen Display System untuk order F&amp;B yang sudah lunas." />
+            </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar">
+                <TextField fx:id="searchOrderField" promptText="Cari nomor order / PC / user..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="kitchenStatusFilterCombo" prefWidth="180.0" promptText="Semua Status" styleClass="form-combo" />
+                <Button fx:id="refreshOrderButton" styleClass="secondary-button" text="Refresh" />
             </HBox>
-            
-            <!-- Garis Pemisah (Border Bawah Header diatur via CSS) -->
-            <Separator prefWidth="100.0" />
-            <!-- List View (Dibuat transparan agar menyatu dengan box) -->
-            <ListView fx:id="listPesanan" styleClass="transparent-list-view" VBox.vgrow="ALWAYS" />
-         </children>
-      </VBox>
-   </center>
+        </VBox>
+    </top>
 
-   <!-- BAGIAN BAWAH: Form Input -->
-   <bottom>
-      <VBox styleClass="outlined-box" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-         <children>
-            <HBox alignment="BOTTOM_LEFT" spacing="20.0">
-               <children>
-                  <!-- Input PC -->
-                  <VBox spacing="8.0">
-                     <children>
-                        <Label styleClass="form-label" text="PC" />
-                        <ComboBox prefWidth="150.0" styleClass="form-combo" />
-                     </children>
-                  </VBox>
-                  <!-- Input Menu -->
-                  <VBox spacing="8.0">
-                     <children>
-                        <Label styleClass="form-label" text="Menu" />
-                        <ComboBox prefWidth="250.0" styleClass="form-combo" />
-                     </children>
-                  </VBox>
-                  <!-- Input Qty -->
-                  <VBox spacing="8.0">
-                     <children>
-                        <Label styleClass="form-label" text="Qty" />
-                        <ComboBox prefWidth="80.0" styleClass="form-combo" />
-                     </children>
-                  </VBox>
-                  
-                  <!-- Tombol Tambah Bulat -->
-                  <Button mnemonicParsing="false" styleClass="btn-add-circle" text="+" />
-                  
-                  <Region HBox.hgrow="ALWAYS" />
-                  
-                  <!-- Area Summary & Tombol Ungu -->
-                  <VBox alignment="CENTER_RIGHT" spacing="10.0">
-                     <children>
-                        <Label styleClass="summary-text" text="0 Items | Rp 0" />
-                        <!-- Tombol Submit (Kosong sesuai gambar) -->
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-submit-purple" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </bottom>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="16.0" styleClass="content-wrapper">
+                <HBox spacing="10.0">
+                    <Label styleClass="badge badge-warning" text="Menunggu" />
+                    <Label styleClass="badge badge-info" text="Proses" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label styleClass="section-subtitle" text="Order billing dan pesanan yang sudah selesai tidak tampil di halaman ini." />
+                </HBox>
+
+                <VBox fx:id="orderCardContainer" spacing="12.0" />
+
+                <VBox fx:id="emptyOrderState" alignment="CENTER" managed="false" spacing="8.0" styleClass="empty-state" visible="false">
+                    <Label styleClass="empty-title" text="Belum ada pesanan F&amp;B lunas" />
+                    <Label styleClass="empty-subtitle" text="Pesanan akan muncul setelah pembayaran sukses." />
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
 </BorderPane>

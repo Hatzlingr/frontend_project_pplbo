@@ -1,0 +1,11 @@
+@import "../shared/design-system.css";
+
+.stat-money {
+    -fx-font-size: 24px;
+}
+
+.activity-row {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12;
+    -fx-padding: 10 12 10 12;
+}

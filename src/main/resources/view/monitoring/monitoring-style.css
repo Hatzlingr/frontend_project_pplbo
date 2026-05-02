@@ -1,151 +1,47 @@
-.monitoring-page {
-    -fx-background-color: #070b16;
+@import "../shared/design-system.css";
+
+.pc-card {
+    -fx-min-height: 300;
 }
 
-.monitoring-title {
-    -fx-font-size: 22px;
-    -fx-font-weight: 800;
-    -fx-padding: 18 18 12 18;
-    -fx-text-fill: #f1f5f9;
+.pc-code {
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0F172A;
 }
 
-.summary-card {
-    -fx-background-color: linear-gradient(to bottom right, #1a2640, #111a2f);
-    -fx-background-radius: 12;
-    -fx-border-color: #2d3f61;
-    -fx-border-radius: 12;
-    -fx-border-width: 1;
-    -fx-pref-width: 220;
-}
-
-.summary-title {
-    -fx-font-size: 14px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #bfdbfe;
-}
-
-.summary-metric {
-    -fx-font-size: 17px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #f8fafc;
-}
-
-.summary-submetric {
-    -fx-font-size: 13px;
-    -fx-text-fill: #93c5fd;
-}
-
-.section-title {
-    -fx-font-size: 15px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #dbeafe;
-    -fx-padding: 0 0 0 2;
-}
-
-.monitoring-scrollpane {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-.monitoring-scrollpane .viewport {
-    -fx-background-color: transparent;
-}
-
-.monitoring-grid {
-    -fx-background-color: #0b1224;
+.session-info-box {
+    -fx-background-color: #F8FAFC;
     -fx-background-radius: 14;
-}
-
-.item-container {
-    -fx-background-color: #121a2d;
-    -fx-background-radius: 14;
-    -fx-border-color: #2a3854;
-    -fx-border-width: 1;
-    -fx-border-radius: 14;
     -fx-padding: 12;
-    -fx-alignment: top-left;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 12, 0.12, 0, 3);
 }
 
-.item-container:hover {
-    -fx-background-color: #18233a;
-    -fx-border-color: #3b82f6;
-}
-
-.pc-number {
-    -fx-font-size: 18px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #f8fafc;
-}
-
-.pc-user {
-    -fx-font-size: 13px;
-    -fx-text-fill: #a5b4c8;
-}
-
-.pc-timer {
-    -fx-font-family: "Consolas";
-    -fx-font-size: 15px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #60a5fa;
-}
-
-.item-btn {
-    -fx-background-color: linear-gradient(to bottom, #2f6fe4, #245ad4);
-    -fx-text-fill: #ffffff;
+.info-label {
     -fx-font-size: 12px;
     -fx-font-weight: 700;
-    -fx-background-radius: 10;
-    -fx-padding: 8 10 8 10;
+    -fx-text-fill: #64748B;
 }
 
-.item-btn:hover {
-    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2f6fe4);
+.info-value {
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0F172A;
 }
 
-
-/* Statistic Card */
-.card-container {
-    -fx-background-color: #0b143a;
-    -fx-background-radius: 12;
-    -fx-border-color: rgba(255, 255, 255, 0.3); /* Border putih transparan agar halus */
-    -fx-border-radius: 12;
-    -fx-border-width: 1;
-    -fx-overflow: hidden; /* Memastikan konten tidak keluar dari radius */
+.timer-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #64748B;
 }
 
-.top-accent {
-    -fx-background-color: #00ff00;
-    -fx-background-radius: 12 12 0 0;
+.timer-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #2563EB;
 }
 
-.content-box {
-    -fx-padding: 20 25 25 25;
-}
-
-.title-text {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-family: "System";
-}
-
-.count-text {
-    -fx-text-fill: white;
-    -fx-font-size: 52px;
-    -fx-font-weight: bold;
-    -fx-font-family: "System";
-    /* Mengurangi padding default agar tidak terlalu renggang */
-    -fx-padding: -10 0 -10 0; 
-}
-
-.subtitle-text {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-family: "System";
-}
-
-.top-accent {
-    -fx-background-color: #eeff00;
-    -fx-background-radius: 12 12 0 0;
+.extend-panel {
+    -fx-background-color: #EFF6FF;
+    -fx-background-radius: 14;
+    -fx-padding: 12;
 }

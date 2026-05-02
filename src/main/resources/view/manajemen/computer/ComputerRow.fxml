@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER_LEFT"
+      spacing="14.0"
+      styleClass="computer-row card-flat"
+      stylesheets="@manajemen-pc-style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <padding><Insets top="14" right="16" bottom="14" left="16" /></padding>
+    <children>
+        <VBox spacing="4.0" prefWidth="150.0">
+            <Label fx:id="pcCodeLabel" styleClass="row-title" text="PC-01" />
+            <Label fx:id="pcAreaLabel" styleClass="row-subtitle" text="Area Reguler" />
+        </VBox>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label fx:id="pcSpecLabel" styleClass="row-subtitle" text="i5 / GTX / 16GB RAM" wrapText="true" />
+            <HBox spacing="8.0">
+                <Label fx:id="pcStatusBadge" styleClass="badge badge-muted" text="Kosong" />
+                <Label fx:id="pcActiveBadge" styleClass="badge badge-success" text="Aktif" />
+            </HBox>
+        </VBox>
+        <HBox spacing="8.0">
+            <Button fx:id="editComputerButton" styleClass="secondary-button" text="Edit" />
+            <Button fx:id="deleteComputerButton" styleClass="danger-button" text="Delete" />
+        </HBox>
+    </children>
+</HBox>

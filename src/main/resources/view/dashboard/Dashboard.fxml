@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane styleClass="page-root"
+            stylesheets="@dashboard-style.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="6.0" styleClass="page-header">
+            <Label styleClass="page-title" text="Dashboard" />
+            <Label styleClass="page-subtitle" text="Ringkasan operasional DeaJayaNet hari ini." />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="20.0" styleClass="content-wrapper">
+                <GridPane hgap="16.0" vgap="16.0">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+                    <VBox styleClass="stat-card" spacing="8.0" GridPane.columnIndex="0">
+                        <Label styleClass="stat-title" text="PC AKTIF" />
+                        <Label fx:id="activePcCountLabel" styleClass="stat-value" text="0" />
+                        <Label styleClass="stat-footnote" text="Dari total PC tersedia" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="8.0" GridPane.columnIndex="1">
+                        <Label styleClass="stat-title" text="TRANSAKSI HARI INI" />
+                        <Label fx:id="todayTransactionCountLabel" styleClass="stat-value" text="0" />
+                        <Label styleClass="stat-footnote" text="F&amp;B, billing, topup member" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="8.0" GridPane.columnIndex="2">
+                        <Label styleClass="stat-title" text="ORDER F&amp;B" />
+                        <Label fx:id="todayFoodOrderCountLabel" styleClass="stat-value" text="0" />
+                        <Label styleClass="stat-footnote" text="Order lunas masuk KDS" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="8.0" GridPane.columnIndex="3">
+                        <Label styleClass="stat-title" text="PENDAPATAN" />
+                        <Label fx:id="todayRevenueLabel" styleClass="stat-value stat-money" text="Rp0" />
+                        <Label styleClass="stat-footnote" text="Total hari ini" />
+                    </VBox>
+                </GridPane>
+
+                <HBox spacing="16.0">
+                    <VBox spacing="14.0" styleClass="card" HBox.hgrow="ALWAYS">
+                        <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                        <Label styleClass="section-title" text="Aktivitas Terbaru" />
+                        <VBox fx:id="recentActivityContainer" spacing="10.0">
+                            <HBox styleClass="activity-row" spacing="10.0">
+                                <Label styleClass="badge badge-info" text="INFO" />
+                                <Label styleClass="row-subtitle" text="Belum ada aktivitas. Controller akan memuat data dummy/backend nanti." />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <VBox spacing="14.0" styleClass="card" prefWidth="360.0">
+                        <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                        <Label styleClass="section-title" text="Status Cepat" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="badge badge-success" text="Aktif" />
+                            <Label fx:id="pcActiveSummaryLabel" styleClass="row-subtitle" text="0 PC sedang digunakan" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="badge badge-warning" text="KDS" />
+                            <Label fx:id="pendingKitchenSummaryLabel" styleClass="row-subtitle" text="0 pesanan menunggu" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label styleClass="badge badge-info" text="Member" />
+                            <Label fx:id="memberTopupSummaryLabel" styleClass="row-subtitle" text="0 topup hari ini" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

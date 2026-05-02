@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="pcCardRoot" prefWidth="320.0" spacing="12.0" styleClass="pc-card card" stylesheets="@monitoring-style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="16" left="16" right="16" top="16" />
+    </padding>
+
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                <Label fx:id="pcCodeLabel" styleClass="pc-code" text="PC-01" />
+                <Label fx:id="pcAreaLabel" styleClass="row-subtitle" text="Area Reguler" />
+            </VBox>
+            <Label fx:id="pcStatusBadge" styleClass="badge badge-success" text="Aktif" />
+        </HBox>
+
+        <VBox spacing="6.0" styleClass="session-info-box">
+            <HBox alignment="CENTER_LEFT">
+                <Label styleClass="info-label" text="User" HBox.hgrow="ALWAYS" />
+                <Label fx:id="userLabel" styleClass="info-value" text="Guest / Member" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <Label styleClass="info-label" text="Mulai" HBox.hgrow="ALWAYS" />
+                <Label fx:id="startTimeLabel" styleClass="info-value mono-text" text="10:00" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <Label styleClass="info-label" text="Berakhir" HBox.hgrow="ALWAYS" />
+                <Label fx:id="endTimeLabel" styleClass="info-value mono-text" text="12:00" />
+            </HBox>
+        </VBox>
+
+        <VBox spacing="4.0">
+            <Label styleClass="timer-label" text="Sisa Waktu" />
+            <Label fx:id="remainingTimeLabel" styleClass="timer-value" text="01:25:00" />
+        </VBox>
+
+        <VBox fx:id="extendTimePanel" managed="false" spacing="10.0" styleClass="extend-panel" visible="false">
+            <Label styleClass="section-subtitle" text="Tambah waktu dari billing package" />
+            <ComboBox fx:id="billingPackageCombo" maxWidth="Infinity" promptText="Pilih paket billing" styleClass="form-combo" />
+            <HBox spacing="8.0">
+                <RadioButton fx:id="payDirectRadio" selected="true" text="Bayar langsung" />
+                <RadioButton fx:id="useMemberTimeRadio" text="Pakai saldo member" />
+            </HBox>
+            <HBox spacing="8.0">
+                <Button fx:id="confirmExtendButton" maxWidth="Infinity" styleClass="primary-button" text="Konfirmasi" HBox.hgrow="ALWAYS" />
+                <Button fx:id="cancelExtendButton" styleClass="secondary-button" text="Batal" />
+            </HBox>
+        </VBox>
+
+        <HBox spacing="8.0">
+            <Button fx:id="showExtendPanelButton" maxWidth="Infinity" styleClass="primary-button" text="Start Session/Tambah Waktu" HBox.hgrow="ALWAYS" />
+            <Button fx:id="stopSessionButton" styleClass="danger-button" text="Stop" />
+        </HBox>
+    </children>
+</VBox>

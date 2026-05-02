@@ -1,0 +1,11 @@
+@import "../../shared/design-system.css";
+
+.package-row {
+    -fx-min-height: 92;
+}
+
+.package-duration {
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0B1B4B;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER_LEFT"
+      spacing="14.0"
+      styleClass="user-row card-flat"
+      stylesheets="@manajemen-user-style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <padding><Insets top="14" right="16" bottom="14" left="16" /></padding>
+    <children>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Label fx:id="userNameLabel" styleClass="row-title" text="Nama User" />
+                <Label fx:id="roleBadge" styleClass="badge badge-info" text="Member" />
+            </HBox>
+            <Label fx:id="usernameLabel" styleClass="row-subtitle" text="@username" />
+        </VBox>
+        <VBox alignment="CENTER_RIGHT" spacing="3.0" prefWidth="150.0">
+            <Label styleClass="form-label" text="Remaining" />
+            <Label fx:id="remainingTimeLabel" styleClass="amount-text" text="120 menit" />
+        </VBox>
+        <HBox spacing="8.0">
+            <Button fx:id="editUserButton" styleClass="secondary-button" text="Edit" />
+            <Button fx:id="deleteUserButton" styleClass="danger-button" text="Delete" />
+        </HBox>
+    </children>
+</HBox>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER_LEFT"
+      spacing="16.0"
+      styleClass="package-row card-flat"
+      stylesheets="@manajemen-paket-billing-style.css"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <padding><Insets top="14" right="16" bottom="14" left="16" /></padding>
+    <children>
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label fx:id="packageNameLabel" styleClass="row-title" text="Paket 1 Jam" />
+                <Label fx:id="packageTypeBadge" styleClass="badge badge-info" text="Reguler" />
+                <Label fx:id="packageStatusBadge" styleClass="badge badge-success" text="Aktif" />
+            </HBox>
+            <Label fx:id="packageDescriptionLabel" styleClass="row-subtitle" text="Dipakai untuk Topup Member dan Tambah Waktu Session" />
+        </VBox>
+        <VBox alignment="CENTER_RIGHT" spacing="4.0" prefWidth="130.0">
+            <Label styleClass="form-label" text="Durasi" />
+            <Label fx:id="durationLabel" styleClass="package-duration" text="60 menit" />
+        </VBox>
+        <VBox alignment="CENTER_RIGHT" spacing="4.0" prefWidth="130.0">
+            <Label styleClass="form-label" text="Harga" />
+            <Label fx:id="packagePriceLabel" styleClass="amount-text" text="Rp5.000" />
+        </VBox>
+        <HBox spacing="8.0">
+            <Button fx:id="editPackageButton" styleClass="secondary-button" text="Edit" />
+            <Button fx:id="deletePackageButton" styleClass="danger-button" text="Delete" />
+        </HBox>
+    </children>
+</HBox>

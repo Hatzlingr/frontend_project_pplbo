@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane styleClass="page-root"
+            stylesheets="@topup-member-style.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="6.0" styleClass="page-header">
+            <Label styleClass="page-title" text="Topup Member" />
+            <Label styleClass="page-subtitle" text="Topup khusus member untuk menambah remaining time akun, tidak untuk non-member." />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <HBox spacing="18.0" styleClass="content-wrapper">
+                <VBox spacing="14.0" styleClass="card" prefWidth="430.0">
+                    <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                    <Label styleClass="section-title" text="Pilih Member" />
+                    <TextField fx:id="memberSearchField" promptText="Cari username / nama member..." styleClass="search-field" />
+                    <VBox fx:id="memberListContainer" spacing="10.0" />
+                    <VBox fx:id="emptyMemberState" alignment="CENTER" spacing="6.0" styleClass="empty-state" visible="false" managed="false">
+                        <Label styleClass="empty-title" text="Member tidak ditemukan" />
+                        <Label styleClass="empty-subtitle" text="Coba kata kunci lain." />
+                    </VBox>
+                </VBox>
+
+                <VBox spacing="16.0" HBox.hgrow="ALWAYS">
+                    <VBox spacing="14.0" styleClass="card">
+                        <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                        <HBox alignment="CENTER_LEFT">
+                            <VBox HBox.hgrow="ALWAYS" spacing="4.0">
+                                <Label styleClass="section-title" text="Detail Topup" />
+                                <Label styleClass="section-subtitle" text="Pilih paket billing lalu konfirmasi pembayaran." />
+                            </VBox>
+                            <Label fx:id="selectedMemberBadge" styleClass="badge badge-muted" text="Belum pilih member" />
+                        </HBox>
+
+                        <GridPane hgap="14.0" vgap="12.0">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50" />
+                                <ColumnConstraints percentWidth="50" />
+                            </columnConstraints>
+                            <VBox spacing="6.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label styleClass="form-label" text="Member" />
+                                <TextField fx:id="selectedMemberField" editable="false" promptText="Pilih dari daftar member" styleClass="form-input" />
+                            </VBox>
+                            <VBox spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label styleClass="form-label" text="Remaining Time Saat Ini" />
+                                <TextField fx:id="currentRemainingTimeField" editable="false" promptText="0 menit" styleClass="form-input" />
+                            </VBox>
+                            <VBox spacing="6.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label styleClass="form-label" text="Billing Package" />
+                                <ComboBox fx:id="billingPackageCombo" maxWidth="Infinity" promptText="Pilih paket" styleClass="form-combo" />
+                            </VBox>
+                            <VBox spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label styleClass="form-label" text="Metode Pembayaran" />
+                                <ComboBox fx:id="paymentMethodCombo" maxWidth="Infinity" promptText="Cash / QRIS Simulasi" styleClass="form-combo" />
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+                    <VBox spacing="12.0" styleClass="summary-card card-flat">
+                        <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                        <Label styleClass="section-title" text="Ringkasan" />
+                        <HBox alignment="CENTER_LEFT">
+                            <Label styleClass="summary-label" text="Durasi Paket" HBox.hgrow="ALWAYS" />
+                            <Label fx:id="packageDurationLabel" styleClass="summary-value" text="0 menit" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label styleClass="summary-label" text="Harga" HBox.hgrow="ALWAYS" />
+                            <Label fx:id="packagePriceLabel" styleClass="summary-value amount-text" text="Rp0" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label styleClass="summary-label" text="Remaining Setelah Topup" HBox.hgrow="ALWAYS" />
+                            <Label fx:id="remainingAfterTopupLabel" styleClass="summary-value" text="0 menit" />
+                        </HBox>
+                        <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                            <Button fx:id="resetTopupFormButton" styleClass="secondary-button" text="Reset" />
+                            <Button fx:id="confirmTopupButton" styleClass="primary-button" text="Konfirmasi Topup" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

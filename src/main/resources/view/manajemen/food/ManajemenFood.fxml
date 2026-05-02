@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane styleClass="page-root"
+            stylesheets="@manajemen-food-style.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="6.0" styleClass="page-header">
+            <Label styleClass="page-title" text="Menu F&amp;B" />
+            <Label styleClass="page-subtitle" text="Kelola menu makanan/minuman, harga, stok, dan status aktif." />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="18.0" styleClass="content-wrapper" prefWidth="800.0">
+                <VBox spacing="14.0" styleClass="card">
+                    <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                    <HBox alignment="CENTER_LEFT">
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label fx:id="foodFormTitleLabel" styleClass="section-title" text="Tambah Menu" />
+                            <Label fx:id="foodFormSubtitleLabel" styleClass="section-subtitle" text="Create / edit menu F&amp;B." />
+                        </VBox>
+                        <Label fx:id="foodEditModeBadge" styleClass="badge badge-info" text="CREATE" />
+                    </HBox>
+                    <VBox spacing="6.0">
+                        <Label styleClass="form-label" text="Nama Menu" />
+                        <TextField fx:id="foodNameField" promptText="Contoh: Indomie Goreng" styleClass="form-input" />
+                    </VBox>
+                    <VBox spacing="6.0">
+                        <Label styleClass="form-label" text="Kategori" />
+                        <ComboBox fx:id="foodCategoryCombo" maxWidth="Infinity" promptText="Makanan / Minuman" styleClass="form-combo" />
+                    </VBox>
+                    <HBox spacing="10.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label styleClass="form-label" text="Harga" />
+                            <TextField fx:id="foodPriceField" promptText="10000" styleClass="form-input" />
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                            <Label styleClass="form-label" text="Stok" />
+                            <TextField fx:id="foodStockField" promptText="0" styleClass="form-input" />
+                        </VBox>
+                    </HBox>
+                    <VBox spacing="6.0">
+                        <Label styleClass="form-label" text="Status" />
+                        <ComboBox fx:id="foodActiveCombo" maxWidth="Infinity" promptText="Aktif / Nonaktif" styleClass="form-combo" />
+                    </VBox>
+                    <HBox spacing="8.0">
+                        <Button fx:id="saveFoodButton" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="primary-button" text="Simpan" />
+                        <Button fx:id="cancelEditFoodButton" styleClass="secondary-button" text="Batal" visible="false" managed="false" />
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="14.0" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar">
+                        <TextField fx:id="searchFoodField" promptText="Cari menu..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="foodCategoryFilterCombo" prefWidth="160.0" promptText="Semua Kategori" styleClass="form-combo" />
+                        <ComboBox fx:id="foodStatusFilterCombo" prefWidth="150.0" promptText="Semua Status" styleClass="form-combo" />
+                    </HBox>
+                    <VBox fx:id="foodRowContainer" spacing="12.0" />
+                    <VBox fx:id="emptyFoodState" alignment="CENTER" spacing="8.0" styleClass="empty-state" visible="false" managed="false">
+                        <Label styleClass="empty-title" text="Belum ada menu F&amp;B" />
+                        <Label styleClass="empty-subtitle" text="Tambahkan makanan/minuman dari form di kiri." />
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

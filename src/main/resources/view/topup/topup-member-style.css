@@ -1,0 +1,17 @@
+@import "../shared/design-system.css";
+
+.summary-card {
+    -fx-background-color: #FFFFFF;
+}
+
+.summary-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #64748B;
+}
+
+.summary-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0F172A;
+}

@@ -1,73 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane styleClass="monitoring-page" stylesheets="@monitoring-style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.features.monitoring.MonitoringController">
+<BorderPane styleClass="page-root"
+            stylesheets="@monitoring-style.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
     <top>
-        <VBox spacing="12.0" styleClass="monitoring-top-wrapper">
-            <children>
-                <Label styleClass="monitoring-title" text="Monitoring PC" />
-                <HBox spacing="12.0" styleClass="monitoring-summary-row">
-                    <children>
-                        <VBox spacing="6.0" styleClass="summary-card">
-                            <children>
-                                <Label styleClass="summary-title" text="PC Reguler" />
-                                <Label fx:id="lblRegulerActive" styleClass="summary-metric" text="Aktif: 0" />
-                                <Label fx:id="lblRegulerAvailable" styleClass="summary-submetric" text="Available: 0" />
-                            </children>
-                            <padding>
-                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                            </padding>
-                        </VBox>
-                        <VBox spacing="6.0" styleClass="summary-card">
-                            <children>
-                                <Label styleClass="summary-title" text="PC VIP" />
-                                <Label fx:id="lblVipActive" styleClass="summary-metric" text="Aktif: 0" />
-                                <Label fx:id="lblVipAvailable" styleClass="summary-submetric" text="Available: 0" />
-                            </children>
-                            <padding>
-                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                            </padding>
-                        </VBox>
-                    </children>
-                    <padding>
-                        <Insets left="18.0" right="18.0" />
-                    </padding>
-                </HBox>
-            </children>
+        <VBox spacing="14.0" styleClass="page-header">
+            <VBox spacing="4.0">
+                <Label styleClass="page-title" text="Monitoring Sesi" />
+                <Label styleClass="page-subtitle" text="Pantau PC aktif, sisa waktu, dan tambah waktu session dari billing package." />
+            </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar">
+                <TextField fx:id="searchPcField" promptText="Cari PC / user / member..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="statusFilterCombo" prefWidth="170.0" promptText="Semua Status" styleClass="form-combo" />
+                <Button fx:id="refreshMonitoringButton" styleClass="secondary-button" text="Refresh" />
+            </HBox>
         </VBox>
     </top>
+
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" styleClass="monitoring-scrollpane">
-            <content>
-                <VBox spacing="14.0" styleClass="monitoring-sections">
-                    <children>
-                        <Label styleClass="section-title" text="PC Reguler" />
-                        <FlowPane fx:id="regulerContainer" hgap="10.0" styleClass="monitoring-grid" vgap="10.0">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                        </FlowPane>
-                        <Separator />
-                        <Label styleClass="section-title" text="PC VIP" />
-                        <FlowPane fx:id="vipContainer" hgap="10.0" styleClass="monitoring-grid" vgap="10.0">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                        </FlowPane>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </padding>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="18.0" styleClass="content-wrapper">
+                <GridPane hgap="14.0" vgap="14.0">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+                    <VBox styleClass="stat-card" spacing="6.0" GridPane.columnIndex="0">
+                        <Label styleClass="stat-title" text="AKTIF" />
+                        <Label fx:id="activeCountLabel" styleClass="stat-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="6.0" GridPane.columnIndex="1">
+                        <Label styleClass="stat-title" text="KOSONG" />
+                        <Label fx:id="availableCountLabel" styleClass="stat-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="6.0" GridPane.columnIndex="2">
+                        <Label styleClass="stat-title" text="HAMPIR HABIS" />
+                        <Label fx:id="almostExpiredCountLabel" styleClass="stat-value" text="0" />
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="6.0" GridPane.columnIndex="3">
+                        <Label styleClass="stat-title" text="MAINTENANCE" />
+                        <Label fx:id="maintenanceCountLabel" styleClass="stat-value" text="0" />
+                    </VBox>
+                </GridPane>
+
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="section-title" text="Daftar PC" />
+                        <Label styleClass="section-subtitle" text="Card PC dimuat dinamis ke container ini melalui FXMLLoader." />
+                    </VBox>
+                    <HBox spacing="8.0">
+                        <Label styleClass="badge badge-success" text="Aktif" />
+                        <Label styleClass="badge badge-warning" text="Hampir Habis" />
+                        <Label styleClass="badge badge-muted" text="Kosong" />
+                    </HBox>
+                </HBox>
+
+                <TilePane fx:id="pcCardContainer"
+                          hgap="16.0"
+                          vgap="16.0"
+                          prefColumns="3"
+                          tileAlignment="TOP_LEFT" />
+
+                <VBox fx:id="emptyMonitoringState" alignment="CENTER" spacing="8.0" styleClass="empty-state" visible="false" managed="false">
+                    <Label styleClass="empty-title" text="Tidak ada PC ditemukan" />
+                    <Label styleClass="empty-subtitle" text="Ubah filter atau refresh data monitoring." />
                 </VBox>
-            </content>
+            </VBox>
         </ScrollPane>
     </center>
 </BorderPane>
